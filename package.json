@@ -1,0 +1,22 @@
+{
+  "name": "redux-basics",
+  "version": "1.0.0",
+  "description": "Redux basics",
+  "main": "actions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafalPijet/Redux-basics.git"
+  },
+  "author": "LopezPL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RafalPijet/Redux-basics/issues"
+  },
+  "homepage": "https://github.com/RafalPijet/Redux-basics#readme",
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}
