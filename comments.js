@@ -1,6 +1,6 @@
 import {ADD_COMMENT, EDIT_COMMENT, REMOVE_COMMENT, THUMB_UP_COMMENT, THUMB_DOWN_COMMENT} from "./actions";
 
-export const comments = (state = [], action) => {
+const comments = (state = [], action) => {
     switch (action.type) {
         case ADD_COMMENT:
             return [
@@ -17,39 +17,32 @@ export const comments = (state = [], action) => {
                 }
             ];
         case EDIT_COMMENT:
-            return [
-                {
-                    comments: state.comments.map(comment => {
-
-                        if (comment.id === action.id) {
-                            comment.text = action.text
-                        }
-                    })
+            return state.map(comment => {
+                
+                if (comment.id === action.id) {
+                    return {...comment, text: action.text}
                 }
-            ];
+                return  comment;
+            });
         case THUMB_UP_COMMENT:
-            return [
-                {
-                    comments: state.comments.map(comment => {
+            return state.map(comment => {
 
-                        if (comment.id === action.id) {
-                            comment.votes += 1;
-                        }
-                    })
+                if (comment.id === action.id) {
+                    return {...comment, votes: comment.votes + 1}
                 }
-            ];
+                return comment;
+            });
         case THUMB_DOWN_COMMENT:
-            return [
-                {
-                    comments: state.comments.map(comment => {
+            return state.map(comment => {
 
-                        if (comment.id === action.id) {
-                            comment.votes -= 1;
-                        }
-                    })
+                if (comment.id === action.id) {
+                    return {...comment, votes: comment.votes - 1}
                 }
-            ];
+                return comment;
+            });
         default:
             return state;
     }
-}
+};
+
+export default comments;
